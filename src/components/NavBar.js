@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from './CartWidget';
-import ItemListContainer from './ItemListContainer';
+
 
 function NavBar () {
     return (
@@ -20,7 +20,7 @@ function NavBar () {
             </Container>
             
           </Navbar>
-          <ItemListContainer greetings = 'Welcome'></ItemListContainer> 
+          
          
           
         </>
