@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Iphone 11",
+        "stock": "32",
+        "priece": "700"
+        
+    },{
+        "name": "Iphone 12",
+        "stock": "43",
+        "priece": "800"
+    },{
+        "name": "Iphone 13",
+        "stock": "21",
+        "priece": "900"
+    },{
+        "name": "Iphone 14",
+        "stock": "65",
+        "priece": "1000"
+    }
+    
+]
