@@ -1,16 +1,37 @@
-import React, {useState} from 'react'
+import React, {useState} from "react";
 
-function ItemCount () {
-const [count, setCount] = useState(0);
-  return (
-    <div>
-       <button onClick={() => setCount(count + 1)}>
-        Click me
-       </button>
-       <p>{count}</p>
+const ItemCount = ({stock, initial, onAdd})=>{
+    const[count, setCount] = useState(initial)
 
-    </div>
-  )
+    const sumar=()=>{
+        if(stock > count){
+            setCount(count + 1)
+        }
+    }
+
+    const restar=()=>{
+        if(count > 1){
+            setCount(count - 1)
+        }
+    }
+
+    const AgregarCantidad=()=>{
+        onAdd(count)
+    }
+
+    
+    return (
+        <>
+        <div >
+            <button onClick={restar}> - </button>
+
+            <label> {count} </label>
+
+            <button onClick={sumar}> + </button>
+        </div>
+            <button  onClick={AgregarCantidad}> AGREGAR AL CARRITO </button>
+                
+        </>
+    )
 }
-
-export default ItemCount
+export default ItemCount;
