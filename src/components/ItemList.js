@@ -7,7 +7,7 @@ const ItemListJS = ()=> {
   
    
     let [ItemsS, setItemsS] = useState([]);
-
+/*
 
     useEffect(()=>{
         let promiseItemRender = new Promise((resolve, reject) =>{
@@ -25,7 +25,7 @@ const ItemListJS = ()=> {
     })
     },[])
     
-
+*/
 
    return(
     <>

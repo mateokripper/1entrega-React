@@ -2,19 +2,23 @@
     {
         "name": "Iphone 11",
         "stock": "32",
+        "description": "WiFi 5, BT 5.0, NFC, GPS, reconocimiento facial",
         "priece": "700"
         
     },{
         "name": "Iphone 12",
         "stock": "43",
+        "description": "WiFi 6, BT 5.0, NFC, GPS, dualSIM, altavoces estéreo Dolby Atmos, reconocimiento facial",
         "priece": "800"
     },{
         "name": "Iphone 13",
         "stock": "21",
+        "description": "WiFi 6, BT 5.0, NFC, GPS, dualSIM, eSIM, altavoces estéreo Dolby Atmos, reconocimiento facial, resistencia al agua IP68",
         "priece": "900"
     },{
         "name": "Iphone 14",
         "stock": "65",
+        "description": "WiFi 7, BT 5.0, NFC, GPS, dualSIM, eSIM, altavoces estéreo Dolby Atmos, reconocimiento facial, resistencia al agua IP68",
         "priece": "1000"
     }
     
