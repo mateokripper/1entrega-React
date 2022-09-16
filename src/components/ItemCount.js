@@ -1,37 +1,29 @@
-import React, {useState} from "react";
+import {useState} from 'react';
 
-const ItemCount = ({stock, initial, onAdd})=>{
-    const[count, setCount] = useState(initial)
-
-    const sumar=()=>{
-        if(stock > count){
-            setCount(count + 1)
-        }
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [ count, setCount] = useState(initial);
+    const incrementar = () => {
+        setCount(count+1)
     }
-
-    const restar=()=>{
-        if(count > 1){
-            setCount(count - 1)
-        }
+    const decrementar = () => {
+        setCount((valAnt) => (valAnt > 0 ? count - 1 :  count))
     }
-
-    const AgregarCantidad=()=>{
-        onAdd(count)
-    }
-
     
     return (
-        <>
-        <div >
-            <button onClick={restar}> - </button>
-
-            <label> {count} </label>
-
-            <button onClick={sumar}> + </button>
+        <div>
+            <h3>{count}</h3>
+            <button onClick={decrementar}>-</button>
+            <button onClick={incrementar}>+</button>
+            <button onClick={()=> {
+                if (count <= stock){
+                    onAdd(count)
+                }
+                else{
+                    alert("No hay stock disponible")
+                }
+            }}>Agregar</button>
         </div>
-            <button  onClick={AgregarCantidad}> AGREGAR AL CARRITO </button>
-                
-        </>
     )
 }
+
 export default ItemCount;

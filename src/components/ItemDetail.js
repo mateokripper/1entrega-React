@@ -1,20 +1,21 @@
-import ItemCount from './ItemCount';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 const ItemDetail = ({id, title, description, price, image}) => {
-    
     return (
-    <div className="cards d-flex align-items-center d-flex justify-content-evenly">    
-            <div className="card col-6 col-sm-3">
-                <img src='./assets/apple-iphone-14.jpg' alt=''/>
-                <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <hr/>
-                    <ItemCount />
-                </div>
-            </div>
-    </div>
-  );
-}
-
-export default ItemDetail;
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={image} />
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>{description}</Card.Text>
+        </Card.Body>
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item>{price}</ListGroup.Item>
+        </ListGroup>
+        
+      </Card>
+    );
+  }
+  
+  export default ItemDetail;

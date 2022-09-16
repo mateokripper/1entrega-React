@@ -1,39 +1,13 @@
-import ItemJS from "./Item";
-import { useState } from "react";
-import { useEffect } from "react";
-import productos from "../prod/productos.json"
+import React from 'react';
+import Item from './Item';
 
-const ItemListJS = ()=> {
-  
-   
-    let [ItemsS, setItemsS] = useState([]);
-/*
 
-    useEffect(()=>{
-        let promiseItemRender = new Promise((resolve, reject) =>{
-            setTimeout(()=>
-              {
-                 resolve(productos); 
-              }
-              ,2000)
-             
-            })
-     
-             promiseItemRender.then((respuesta)=>{
-        setItemsS(productos);
-        console.log(respuesta)
-    })
-    },[])
-    
-*/
-
-   return(
-    <>
-    <ItemJS ItemsS={ItemsS}/>
-    </>
-   )
-  
-    
+const ItemList = ({ items }) => {
+    return (
+        <div>
+            {items.map((el)=>(<Item{...el}/>))}
+        </div>
+    );
 }
 
-export default ItemListJS;
+export default ItemList;
