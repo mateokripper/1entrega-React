@@ -22,6 +22,7 @@ const getAllProductsFromDB = async (setState) => {
 };
 
 //Async Await que setea mi hook de estado
+//Esta función recibe el id y la función setProduct para setear product con el producto correspondiente al id. 
 const getProductById = async (id, setState) => {
   try {
     const result = await getProducts;
