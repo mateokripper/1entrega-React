@@ -2,23 +2,19 @@ import NavBar from "./components/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import Cart from "./components/Cart";
-import {BrowserRouter , Routes, Route} from "react-router-dom";
+
 function App() {
   return (
+    <>
+    <NavBar />
     
-    <BrowserRouter>
-            <NavBar />
-            <ItemDetailContainer />
-      
-			<Routes>
-            <Route path="/" element={<ItemListContainer />} />
-            <Route path="/categoria/:categoriaId" element={<ItemListContainer />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
-			</Routes>
-		</BrowserRouter>
-  
+    <ItemListContainer />
+
+    {/* Este componente ItemDetailContainer recibe por prop el id de un producto
+    Encuentra ese producto entre el array de productos y muestra el detalle del
+    producto pasándolo al componente ItemDetail */}
+    <ItemDetailContainer id={3} />
+  </>
   );
 }
 

@@ -1,20 +1,22 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import ItemCount from './ItemCount';
 
+const Item = (item) => {
+  const onAdd = (qty) => {
+    alert(`Has agregado ${qty} cervezas 🍺`);
+  };
 
-const Item = ({id, title, description, price, image}) => {
-    return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={image} />
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>{description}</Card.Text>
-                <Card.Text>{price}</Card.Text>
-                <Button variant="primary">Detalle</Button>
-        </Card.Body>
-        </Card>
-    );
-}
+  return (
+    <article className="product-card">
+      <img className="product-card__image" src={item.thumbnail} alt="" />
+
+      <h3 className="product-card__name">{item.name}</h3>
+
+      <span className="product-card__name">${item.price}</span>
+
+      <ItemCount stock={item.stock} onAdd={onAdd} initial={1} />
+    </article>
+  );
+};
 
 export default Item;
