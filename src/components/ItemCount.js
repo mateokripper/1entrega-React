@@ -1,29 +1,37 @@
-import {useState} from 'react';
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [ count, setCount] = useState(initial);
-    const incrementar = () => {
-        setCount(count+1)
-    }
-    const decrementar = () => {
-        setCount((valAnt) => (valAnt > 0 ? count - 1 :  count))
-    }
-    
-    return (
-        <div>
-            <h3>{count}</h3>
-            <button onClick={decrementar}>-</button>
-            <button onClick={incrementar}>+</button>
-            <button onClick={()=> {
-                if (count <= stock){
-                    onAdd(count)
-                }
-                else{
-                    alert("No hay stock disponible")
-                }
-            }}>Agregar</button>
-        </div>
-    )
-}
+import React, { useEffect, useState } from "react";
+
+
+const ItemCount = ({ initial, stock, onAdd }) => {
+	const [count, setCount] = useState(parseInt(initial));
+	const decrease = () => {
+		setCount(count - 1);
+	};
+
+	const increase = () => {
+		setCount(count + 1);
+	};
+
+	useEffect(() => {
+		setCount(parseInt(initial));
+	}, [initial]);
+
+	return (
+		<div className="counter">
+			<button disabled={count <= 1} onClick={decrease}>
+				-
+			</button>
+			<span>{count}</span>
+			<button disabled={count >= stock} onClick={increase}>
+				+
+			</button>
+			<div>
+				<button disabled={stock <= 0} onClick={() => onAdd(count)}>
+					Agregar al carrito
+				</button>
+			</div>
+		</div>
+	);
+};
 
 export default ItemCount;

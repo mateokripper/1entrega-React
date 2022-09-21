@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-//import products from "../prod/productos.json";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({greeting}) => {
@@ -25,13 +23,10 @@ const ItemListContainer = ({greeting}) => {
 		}
 	}, [categoriaId]);
 
-	const onAdd = (quantity) => {
-		console.log(`Compraste ${quantity} unidades`);
-	};
 	return (
 		<>
 			
-			<ItemCount initial={3} stock={5} onAdd={onAdd} />
+			
 			<ItemList data={data} />
 		</>
 	);

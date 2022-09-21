@@ -1,9 +1,15 @@
 import ItemCount from './ItemCount';
 import './styles/ItemDetail.css';
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
+
 
 const ItemDetail = ({ item }) => {
+  
+  const [goToCart, setGoToCart] = useState(false);
+
   const onAdd = (qty) => {
-    alert(`Has agregado ${qty} cervezas 🍺`);
+    setGoToCart(true);
   };
 
   console.log(item);
@@ -18,12 +24,14 @@ const ItemDetail = ({ item }) => {
           <li>${item.price}</li>
           <li>Size:</li>
           <li>{item.size}</li>
-          <li>Vendor:</li>
-          <li>{item.vendor}</li>
           <li>Type:</li>
           <li>{item.type}</li>
         </ul>
-        <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+        {goToCart ? (
+						<Link to="/cart"> Terminar al carrito</Link>
+					) : (
+						<ItemCount initial={3} stock={5} onAdd={onAdd} />
+					)}
       </div>
     </article>
   );
