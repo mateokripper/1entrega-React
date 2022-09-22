@@ -1,37 +1,56 @@
+import React from 'react';
+import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
-import React, { useEffect, useState } from "react";
+import './styles/ItemCount.css';
 
 
 const ItemCount = ({ initial, stock, onAdd }) => {
-	const [count, setCount] = useState(parseInt(initial));
-	const decrease = () => {
-		setCount(count - 1);
-	};
+  //hook de estado
+  const [qty, setQty] = useState(initial);
+  const [showButton, setshowButton] = useState(false);
 
-	const increase = () => {
-		setCount(count + 1);
-	};
+  let navigate = useNavigate();
 
-	useEffect(() => {
-		setCount(parseInt(initial));
-	}, [initial]);
+  const addProduct = (num) => {
+    setQty(qty + num);
+  };
 
-	return (
-		<div className="counter">
-			<button disabled={count <= 1} onClick={decrease}>
-				-
-			</button>
-			<span>{count}</span>
-			<button disabled={count >= stock} onClick={increase}>
-				+
-			</button>
-			<div>
-				<button disabled={stock <= 0} onClick={() => onAdd(count)}>
-					Agregar al carrito
-				</button>
-			</div>
-		</div>
-	);
+  return (
+    <div className="count-container">
+      <div className="count-container__contador">
+        <button
+          className="count-container__button"
+          onClick={() => addProduct(-1)}
+          disabled={qty === initial ? true : null}
+        >
+          -
+        </button>
+        <span className="count-container__qty">{qty}</span>
+        <button
+          className="count-container__button"
+          onClick={() => addProduct(+1)}
+          disabled={qty === stock ? true : null}
+        >
+          +
+        </button>
+      </div>
+
+      <button
+        className="button-primary"
+        onClick={() => {onAdd(qty); setshowButton(true)}}
+        disabled={stock === 0 ? true : null}
+      >
+        Añadir
+      </button>
+      { (showButton && navigate('/detail') ) && <button
+        onClick={()=>{navigate('/cart')}}
+        className="button-primary button-finalizar-compra"
+      >
+        Finalizar compra
+      </button>}
+    </div>
+  );
 };
 
 export default ItemCount;

@@ -1,34 +1,15 @@
-import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import ItemList from './ItemList';
+import './styles/ItemListContainer.css';
 
-const ItemListContainer = ({greeting}) => {
-    
-    const [data, setData] = useState([]);
-	const { categoriaId } = useParams();
+const ItemListContainer = () => {
+  return (
+    <section className="item-list-container">
+      <h2 className="item-list-container__title">Productos destacados</h2>
 
-	useEffect(() => {
-		const getData = new Promise((resolve) => {
-			setTimeout(() => {
-				resolve();
-			}, 1000);
-		});
-		
-		if (categoriaId) {
-			getData.then((res) =>
-				setData(res.filter((products) => products.category === categoriaId)),
-			);
-		} else {
-			getData.then((res) => setData(res));
-		}
-	}, [categoriaId]);
-
-	return (
-		<>
-			
-			
-			<ItemList data={data} />
-		</>
-	);
+      <ItemList />
+    </section>
+  );
 };
+
 export default ItemListContainer;

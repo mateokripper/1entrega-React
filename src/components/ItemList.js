@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import { getAllProductsFromDB } from '../helpers/getData.js';
 
+import './styles/ItemList.css';
 
 const ItemList = () => {
   const [products, setProducts] = useState([]);

@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemList from '../components/ItemList';
-
+import './styles/ProductsPage.css';
 const Products = () => {
     return (
         <main className="products-page-container">

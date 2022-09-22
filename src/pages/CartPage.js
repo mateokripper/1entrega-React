@@ -1,9 +1,11 @@
 import React from 'react'
+import CartListItem from '../components/CartListItem'
+
 const CartPage = () => {
 
 
     return (
-        <main >
+        <main className="display-page">
             <h1>Tu carrito de compras</h1>
         </main>
     )

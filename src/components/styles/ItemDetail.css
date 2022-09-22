@@ -32,3 +32,13 @@
   .info-grid li {
     text-align: left;
   }
+
+  @media only screen and (min-width: 800px) {
+    .product-detail {
+      flex-direction: row;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+  }
+  
